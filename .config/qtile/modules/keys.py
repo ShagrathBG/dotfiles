@@ -11,14 +11,13 @@ keys = [
     Key([mod], "l", lazy.layout.right(), desc="Move focus to right"),
     Key([mod], "j", lazy.layout.down(), desc="Move focus down"),
     Key([mod], "k", lazy.layout.up(), desc="Move focus up"),
-    Key([mod],
-        "space",
-        lazy.layout.next(),
-        desc="Move window focus to other window"),
 
     Key([mod], "r", lazy.spawn("rofi -show combi"), desc="spawn rofi"),
     Key([mod], "b", lazy.spawn(browser), desc="Firefox"),
-
+    
+    # Keyboard layout
+    Key([mod], "space", lazy.widget["keyboardlayout"].next_keyboard(), desc="Switch keyboard layouts"),
+    
     # Move windows between left/right columns or move up/down in current stack.
     # Moving out of range in Columns layout will create new column.
     Key([mod, "shift"],
@@ -62,6 +61,12 @@ keys = [
         desc="Toggle between split and unsplit sides of stack"),
     Key([mod], "Return", lazy.spawn(terminal), desc="Launch terminal"),
 
+    # Shrink/Grow
+    Key([mod], "i", lazy.layout.grow()),
+    Key([mod], "m", lazy.layout.shrink()),
+    Key([mod, "shift"], "f", lazy.window.toggle_fullscreen()),
+
+
     # Toggle between different layouts as defined below
     Key([mod], "Tab", lazy.next_layout(), desc="Toggle between layouts"),
     Key([mod], "c", lazy.window.kill(), desc="Kill focused window"),
@@ -90,6 +95,7 @@ keys = [
         lazy.window.toggle_fullscreen(),
         desc='toggle fullscreen'
         ),
+    # CMUS
     Key([mod], "p",
         lazy.spawn("cmus-remote -n"),
         desc='cmus next'

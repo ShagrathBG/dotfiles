@@ -42,6 +42,26 @@ screens = [
                     },
                     name_transform=lambda name: name.upper(),
                 ),
+                widget.TextBox(
+                       text = '',
+                       foreground =colors[0],
+                       padding = 0,
+                       fontsize = 28,
+                       ),
+                widget.Wttr(
+                lang='en',
+                background=colors[0],
+                fontsize=14,
+                foreground=colors[6],
+                location={
+                  '43.209635, 27.913245': 'Варна',
+                }),
+                widget.TextBox(
+                       text = '',
+                       padding = 0,
+                       fontsize = 28,
+                       foreground=colors[0],
+                       ),
                 widget.CurrentLayoutIcon(scale=0.75),
                 widget.CheckUpdates(
                     update_interval=1800,
@@ -50,7 +70,7 @@ screens = [
                     foreground="#ffffff",
                     mouse_callbacks={
                         'Button1':
-                        lambda: qtile.cmd_spawn(alacritt + ' -e yay -Syu')
+                        lambda: qtile.cmd_spawn(alacritty + ' -e yay -Syu')
                     },
                     background=colors[0]),
                 widget.Systray(icon_size = 20),
@@ -69,7 +89,7 @@ screens = [
                 widget.KeyboardLayout(
                        foreground = colors[6],
                        background = colors[0],
-                       configured_keyboards = ['us','bg'],
+                       configured_keyboards = ['us','bg phonetic'],
                        display_map = {'bg phonetic':'bg'},
                        fmt = 'Keyboard: {}',
                        padding = 5
