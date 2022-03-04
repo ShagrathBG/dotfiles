@@ -6,3 +6,6 @@ import os
 def autostart():
     home = os.path.expanduser('~/.config/qtile/autostart.sh')
     subprocess.call([home])
+@hook.subscribe.startup
+def start_always():
+    subprocess.call(['/home/andrew/.config/polybar/forest/launch.sh'])

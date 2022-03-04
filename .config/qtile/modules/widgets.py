@@ -1,6 +1,14 @@
-from libqtile import widget
+# from libqtile import widget
 from libqtile import qtile
+from qtile_extras import widget
+from qtile_extras.widget.decorations import RectDecoration
 
+decor = {
+    "decorations": [
+        RectDecoration(colour="#282c34", radius=10, filled=True, padding_y=0)
+    ],
+    "padding": 18,
+}
 colors = [
 	      ["#282c34", "#282c34"], # panel background
           ["#3d3f4b", "#434758"], # background for current screen tab
@@ -12,54 +20,6 @@ colors = [
           ["#ecbbfb", "#ecbbfb"]  # backbround for inactive screens
 ] 
 
-# def init_widgets_screen1():
-#     widgets_screen1 = init_widgets_list()
-#     del widgets_screen1[9:10]               # Slicing removes unwanted widgets (systray) on Monitors 1,3
-#     return widgets_screen1
-
-# def init_widgets_screen2():
-#     widgets_screen2 = init_widgets_list()
-#     return widgets_screen2                 # Monitor 2 will display all widgets in widgets_list
-
-# def init_screens():
-#     return [Screen(top=bar.Bar(widgets=init_widgets_screen1(), opacity=0.8, size=20)),
-#             Screen(top=bar.Bar(widgets=init_widgets_screen2(), opacity=0.7, size=20)),
-#             Screen(top=bar.Bar(widgets=init_widgets_screen1(), opacity=0.7, size=20))]
-
-
-# if __name__ in ["config", "__main__"]:
-#     screens = init_screens()
-#     widgets_list = init_widgets_list()
-#     widgets_screen1 = init_widgets_screen1()
-#     widgets_screen2 = init_widgets_screen2()
-
-# def window_to_prev_group(qtile):
-#     if qtile.currentWindow is not None:
-#         i = qtile.groups.index(qtile.currentGroup)
-#         qtile.currentWindow.togroup(qtile.groups[i - 1].name)
-
-# def window_to_next_group(qtile):
-#     if qtile.currentWindow is not None:
-#         i = qtile.groups.index(qtile.currentGroup)
-#         qtile.currentWindow.togroup(qtile.groups[i + 1].name)
-
-# def window_to_previous_screen(qtile):
-#     i = qtile.screens.index(qtile.current_screen)
-#     if i != 0:
-#         group = qtile.screens[i - 1].group.name
-#         qtile.current_window.togroup(group)
-
-# def window_to_next_screen(qtile):
-#     i = qtile.screens.index(qtile.current_screen)
-#     if i + 1 != len(qtile.screens):
-#         group = qtile.screens[i + 1].group.name
-#         qtile.current_window.togroup(group)
-
-# def switch_screens(qtile):
-#     i = qtile.screens.index(qtile.current_screen)
-#     group = qtile.screens[i - 1].group
-#     qtile.current_screen.set_group(group)
-#############################
 widget_defaults = dict(
     font='Cantarell',
     fontsize=12,

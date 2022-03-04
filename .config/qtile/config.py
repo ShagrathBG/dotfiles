@@ -20,4 +20,4 @@ widget_defaults = dict(
         padding=3
 )
 
-
+# Group("5", layout="TreeTab", matches=[Match(wm_class=["viber", "discord"])])

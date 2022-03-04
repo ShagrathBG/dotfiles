@@ -12,12 +12,13 @@ keys = [
     Key([mod], "j", lazy.layout.down(), desc="Move focus down"),
     Key([mod], "k", lazy.layout.up(), desc="Move focus up"),
 
-    Key([mod], "r", lazy.spawn("rofi -show combi"), desc="spawn rofi"),
+    Key([mod], "d", lazy.spawn("rofi -show run"), desc="spawn rofi"),
     Key([mod], "b", lazy.spawn(browser), desc="Firefox"),
-    
+
     # Keyboard layout
-    Key([mod], "space", lazy.widget["keyboardlayout"].next_keyboard(), desc="Switch keyboard layouts"),
-    
+    Key([mod], "space", lazy.widget["keyboardlayout"].next_keyboard(),
+        desc="Switch keyboard layouts"),
+
     # Move windows between left/right columns or move up/down in current stack.
     # Moving out of range in Columns layout will create new column.
     Key([mod, "shift"],
@@ -64,8 +65,6 @@ keys = [
     # Shrink/Grow
     Key([mod], "i", lazy.layout.grow()),
     Key([mod], "m", lazy.layout.shrink()),
-    Key([mod, "shift"], "f", lazy.window.toggle_fullscreen()),
-
 
     # Toggle between different layouts as defined below
     Key([mod], "Tab", lazy.next_layout(), desc="Toggle between layouts"),
@@ -73,16 +72,16 @@ keys = [
     Key([mod, "shift", "control"], "h", lazy.layout.swap_column_left()),
     Key([mod, "shift", "control"], "l", lazy.layout.swap_column_right()),
     Key([mod, "shift"], "space", lazy.layout.flip()),
-    Key([mod, "control"], "r", lazy.restart(), desc="Restart Qtile"),
+    Key([mod, "control"], "r", lazy.reload_config(), desc="Reload config"),
     Key([mod, "control"], "q", lazy.shutdown(), desc="Shutdown Qtile"),
     Key([mod, "shift"],
         "r",
-        lazy.spawncmd(),
-        desc="Spawn a command using a prompt widget"),
-    Key([], "XF86AudioRaiseVolume",lazy.spawn("amixer set Master 3%+")),
-    Key([], "XF86AudioLowerVolume",lazy.spawn("amixer set Master 3%-")),
-    Key([], "XF86AudioMute",lazy.spawn("amixer set Master toggle")),
-    ### Switch focus to specific monitor (out of three)
+        lazy.restart(),
+        desc="Restart QTile"),
+    # Key([], "XF86AudioRaiseVolume",lazy.spawn("amixer set Master 3%+")),
+    # Key([], "XF86AudioLowerVolume",lazy.spawn("amixer set Master 3%-")),
+    # Key([], "XF86AudioMute",lazy.spawn("amixer set Master toggle")),
+    # Switch focus to specific monitor (out of three)
     Key([mod], "w",
         lazy.to_screen(0),
         desc='Keyboard focus to monitor 1'
@@ -95,13 +94,39 @@ keys = [
         lazy.window.toggle_fullscreen(),
         desc='toggle fullscreen'
         ),
-    # CMUS
-    Key([mod], "p",
-        lazy.spawn("cmus-remote -n"),
-        desc='cmus next'
+    Key([mod, "shift"], "f",
+        lazy.window.toggle_floating(),
+        desc='toggle floating'
         ),
-    Key([mod], "o",
-        lazy.spawn("cmus-remote -r"),
-        desc='cmus prev'
+    # CMUS
+    # Key([mod], "p",
+    #     lazy.spawn("cmus-remote -n"),
+    #     desc='cmus next'
+    #     ),
+    # Key([mod], "o",
+    #     lazy.spawn("cmus-remote -r"),
+    #     desc='cmus prev'
+    #     ),
+
+    # MPC
+    Key([mod], "v",
+        lazy.spawn("mpc next"),
+        desc='mpc next'
+        ),
+    Key([mod], "z",
+        lazy.spawn("mpc prev"),
+        desc='mpc prev'
+        ),
+    Key([mod], "x",
+        lazy.spawn("mpc toggle"),
+        desc='mpc start/stop'
+        ),
+    Key([mod, "shift"], "v",
+        lazy.spawn("mpc volume +10"),
+        desc='vol +10%'
+        ),
+    Key([mod, "shift"], "z",
+        lazy.spawn("mpc volume -10"),
+        desc='vol -10%'
         ),
 ]
