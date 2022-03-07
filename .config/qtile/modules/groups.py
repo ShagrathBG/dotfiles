@@ -29,4 +29,4 @@ for i in groups:
         Key([mod, "shift"], i.name, lazy.window.togroup(i.name),
             desc="move focused window to group {}".format(i.name)),
     ])
-Group("5", layout="TreeTab", matches=[Match(wm_class=["viber", "ViberPC", "discord"])])
+# Group("5", layout="TreeTab", matches=[Match(wm_class=["viber", "ViberPC", "discord"])])

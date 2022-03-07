@@ -7,7 +7,8 @@ layouts = [
     # layout.Max(),
     # Try more layouts by unleashing below layouts.
     # layout.Stack(num_stacks=2),
-    # layout.Bsp(margin=6, border_focus='#5294e2', border_normal='#2c5380', ratio='1.6'),
+    layout.Bsp(margin=10, border_focus='#5294e2', border_normal='#2c5380', border_width=1, ratio=1.6),
+    # layout.Bsp(),
     # layout.Matrix(),
     # layout.MonadTall(),
     # layout.MonadWide(),

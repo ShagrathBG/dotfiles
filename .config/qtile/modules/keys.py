@@ -1,9 +1,20 @@
 from libqtile.lazy import lazy
 from libqtile.config import Key
 
+
+# from modules.groups import groups
+# from modules.layouts import layouts, floating_layout
+# from modules.mouse import mouse
+# from modules.hooks import *
+# from libqtile.lazy import lazy
+# import os
+# from modules.screens import screens
+
 mod = "mod4"
-terminal = "alacritty"
+alt = "mod1"
+terminal = "kitty"
 browser = "firefox"
+
 
 keys = [
     # Switch between windows
@@ -12,7 +23,7 @@ keys = [
     Key([mod], "j", lazy.layout.down(), desc="Move focus down"),
     Key([mod], "k", lazy.layout.up(), desc="Move focus up"),
 
-    Key([mod], "d", lazy.spawn("rofi -show run"), desc="spawn rofi"),
+    Key([alt], "d", lazy.spawn("rofi -show run"), desc="spawn rofi"),
     Key([mod], "b", lazy.spawn(browser), desc="Firefox"),
 
     # Keyboard layout
@@ -129,4 +140,5 @@ keys = [
         lazy.spawn("mpc volume -10"),
         desc='vol -10%'
         ),
+    # Key([mod, "shift"], "m", monocle)
 ]
